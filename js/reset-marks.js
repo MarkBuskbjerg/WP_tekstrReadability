@@ -1,3 +1,5 @@
+/* globals markText */
+
 // Reset marks for the editor
 function triggerUpdateEditor() {
   $('#post').submit();
