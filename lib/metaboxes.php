@@ -34,7 +34,7 @@ function tekstr_post_class_meta_box( $post ) { ?>
 
     <?php wp_nonce_field( basename( __FILE__ ), 'tekstr_post_class_nonce' ); ?>
     
-    <p>LIX score er <span id="lix">xx</span></p>
+    <p>LIX score er <span class="lix">xx</span></p>
     <div class="form-group">
         <div class="mt-radio-list">
             <label class="mt-radio" for="markerState1">
@@ -53,7 +53,7 @@ function tekstr_post_class_meta_box( $post ) { ?>
                 <span></span>
             </label><br/>
             <label class="mt-radio">
-                <input id="markerState0" name="markerState" type="radio" value="markLongWord"> Fjern alle markeringer
+                <input id="markerState0" name="markerState" type="radio" value="markNone" checked> Fjern alle markeringer
                 <span></span>
             </label><br/>
         </div>

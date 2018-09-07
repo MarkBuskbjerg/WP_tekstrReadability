@@ -84,7 +84,6 @@ var markText = debounce(function() {
 
 }, 250);
 
-
 // TODO: Rewrite to VanillaJS
 jQuery('.mt-radio').click(function() {
     markText();
