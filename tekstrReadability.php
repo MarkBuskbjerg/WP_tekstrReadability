@@ -24,7 +24,6 @@ function tekstr_load_scripts($hook) {
     }
     
     wp_enqueue_script('marker-js', 'https://cdn.jsdelivr.net/mark.js/8.6.0/mark.min.js');
-    // wp_enqueue_script( 'reset-marks.js', plugins_url( '/js/reset-marks.js', __FILE__) );
 }
 add_action('admin_enqueue_scripts', 'tekstr_load_scripts');
 
@@ -38,18 +37,3 @@ function custom_after_wp_tiny_mce() {
 }
 
 add_action( 'after_wp_tiny_mce', 'custom_after_wp_tiny_mce' );
-
-/*function remove_marks( $content ) {
-    $output = str_replace( "<mark class=\"highlighter\" data-markjs=\"true\">", "", $content );
-    $output = str_replace( '</mark>', '', $content);
-    return $output;
-}
-add_filter( 'content_save_pre' , 'remove_marks' , 10, 1);*/
-
-/*function remove_marks( $content ) {
-    //$output = preg_replace("/<mark class=\"highlighter\" data-markjs=\"true\">/", "", $input_lines);
-    $output = preg_replace("/<mark class=\"highlighter\" data-markjs=\"true\">/", "", $content);
-    $output = preg_replace( '/<\/mark>/', '', $output );
-    return $output;
-}
-add_filter('content_save_pre', 'remove_marks', 10, 1);*/
