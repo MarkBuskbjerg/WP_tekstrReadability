@@ -8,33 +8,36 @@ function outputContent(selector, input) {
 }
 
 function outputStats(inst) {
-  const text = getText('text');
-  const wordsArray = words(text);
-  const wordCount = wordsArray.length;
-  const longWordsCount = wordsArray.filter(arrayOfWords => arrayOfWords.length > 6).length;
-  const sentenceArray = sentences(text);
-  const sentenceCount = sentenceArray.length;
-  const longSentenceCounter = sentenceArray.filter(
-    arrayOfSentences =>
-      // console.log(arrayOfSentences);
-      words(arrayOfSentences).length > 16
-  ).length;
-  const extremeLongSentenceCounter = sentenceArray.filter(
-    arrayOfSentences => words(arrayOfSentences).length > 24
-  ).length;
-  /* outputContent('.word-counter', wordCount); */
-  outputContent('.longWordCount', longWordsCount);
-  outputContent('.longSentenceCounter', longSentenceCounter);
-  outputContent('.extremeLongSentenceCounter', extremeLongSentenceCounter);
-  /* outputContent('.countSections', countSections(getText('html')));
-  outputContent('.charactersWithSpaces', countCharacters(text, true));
-  outputContent('.charactersNoSpaces', countCharacters(text, false));
-  outputContent('.averageCharPerWord', averageCharactersPerWord(text));
-  outputContent('.totalSentenceCount', sentences(text).length);
-  outputContent('.averageSentenceLength', averageSentenceLength(text));
-  outputContent('.readingSpeed', `${measureSpeed(wordCount, 220)} minutter`);
-  outputContent('.speakingSpeed', `${measureSpeed(wordCount, 150)} minutter`); */
-  outputContent('.lix', calculateLix(wordCount, longWordsCount, sentenceCount));
+  console.log(tinyMCE.activeEditor);
+  if (tinyMCE.activeEditor) {
+    const text = getText('text');
+    const wordsArray = words(text);
+    const wordCount = wordsArray.length;
+    const longWordsCount = wordsArray.filter(arrayOfWords => arrayOfWords.length > 6).length;
+    const sentenceArray = sentences(text);
+    const sentenceCount = sentenceArray.length;
+    const longSentenceCounter = sentenceArray.filter(
+      arrayOfSentences =>
+        // console.log(arrayOfSentences);
+        words(arrayOfSentences).length > 16
+    ).length;
+    const extremeLongSentenceCounter = sentenceArray.filter(
+      arrayOfSentences => words(arrayOfSentences).length > 24
+    ).length;
+    /* outputContent('.word-counter', wordCount); */
+    outputContent('.longWordCount', longWordsCount);
+    outputContent('.longSentenceCounter', longSentenceCounter);
+    outputContent('.extremeLongSentenceCounter', extremeLongSentenceCounter);
+    /* outputContent('.countSections', countSections(getText('html')));
+    outputContent('.charactersWithSpaces', countCharacters(text, true));
+    outputContent('.charactersNoSpaces', countCharacters(text, false));
+    outputContent('.averageCharPerWord', averageCharactersPerWord(text));
+    outputContent('.totalSentenceCount', sentences(text).length);
+    outputContent('.averageSentenceLength', averageSentenceLength(text));
+    outputContent('.readingSpeed', `${measureSpeed(wordCount, 220)} minutter`);
+    outputContent('.speakingSpeed', `${measureSpeed(wordCount, 150)} minutter`); */
+    outputContent('.lix', calculateLix(wordCount, longWordsCount, sentenceCount));
+  }
 }
 
 setTimeout(outputStats, 1000);

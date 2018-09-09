@@ -26,3 +26,29 @@ jQuery(document).ready($ => {
     setTimeout(triggerUpdateEditor, 300);
   });
 });
+
+// Reset marks when switching to HTML view
+jQuery(document).ready($ => {
+  let marksRemoved = false;
+
+  function triggerHTMLEditor() {
+    $('#content-html').click();
+  }
+
+  $('#content-html').on('click', e => {
+    console.log('click is registrered');
+    if (marksRemoved) {
+      marksRemoved = false; // reset flag
+      return; // let the event bubble away
+    }
+
+    e.preventDefault();
+
+    // do lots of stuff
+    document.getElementById('markerState0').checked = true;
+    markText();
+
+    marksRemoved = true; // set flag
+    setTimeout(triggerHTMLEditor, 3000);
+  });
+});
