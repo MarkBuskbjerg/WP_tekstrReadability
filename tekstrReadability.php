@@ -4,6 +4,7 @@ Plugin Name: Tekstr Readability
 Plugin URI: https://tekstr.dk
 Description: The Tekstr plugin scores and helps to improve readability on your posts and pages in the WordPress text editor
 Version: 0.1.0
+License: MIT
 Author: Mark Buskbjerg from Tekstr
 Author URI: https://markbuskbjerg.dk
 Text Domain: tekstr
@@ -29,8 +30,9 @@ add_action('admin_enqueue_scripts', 'tekstr_load_scripts');
 
 
 function custom_after_wp_tiny_mce() {
+    // TODO: Should use the tekstr api instead from https://github.com/MarkBuskbjerg/tekstr or https://cdn.jsdelivr.net/gh/MarkBuskbjerg/tekstr@1.0.3/dist/js/tekstr.min.js
     printf( '<script type="text/javascript" src="%s"></script>',  plugins_url('/js/tiny.js', __FILE__) );
-    printf( '<script type="text/javascript" src="%s"></script>',  plugins_url('/js/stats.js', __FILE__) );
+    // printf( '<script type="text/javascript" src="%s"></script>',  plugins_url('/js/stats.js', __FILE__) );
     printf( '<script type="text/javascript" src="%s"></script>',  plugins_url('/js/marktext.js', __FILE__) );
     printf( '<script type="text/javascript" src="%s"></script>',  plugins_url('/js/output.js', __FILE__) );
     printf( '<script type="text/javascript" src="%s"></script>',  plugins_url('/js/reset-marks.js', __FILE__) );
